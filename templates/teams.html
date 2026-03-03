@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bundesliga Teams</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 20px;
+        padding: 20px;
+      }
+      .team-card {
+        text-align: center;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 8px;
+        text-decoration: none;
+        color: black;
+      }
+      .badge {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+      }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container">
+        <h2 class="my-4">Bundesliga Teams</h2>
+        <div class="team-grid">
+          {% for team in teams %}
+          <a href="/team/{{ team }}" class="team-card">
+            <!--<img src="/static/badges/{{ team }}.png" class="badge" alt="{{ team }}">-->
+            <img src="{{ url_for('static', filename='badges/' + team + '.png') }}" class="badge" alt="{{ team }}">
+            <p>{{ team }}</p>
+          </a>
+          {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

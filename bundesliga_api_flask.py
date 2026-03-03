@@ -2,6 +2,7 @@
 from flask import Flask, jsonify, render_template, request
 import pandas as pd
 from sqlalchemy import create_engine
+import sqlite3
 
 app = Flask(__name__)
 # engine = create_engine('mysql+pymysql://root:fe11ini07@localhost/bundesliga')
@@ -125,6 +126,42 @@ def db_status():
         "tables": status,
         "location": database_path
     })
+
+
+@app.route('/teams')
+def teams_home():
+    teams = ['Bremen',     'Bayern', 'Leverkusen',    'Leipzig',  'Wolfsburg',
+ 'Heidenheim', 'Hoffenheim',   'Freiburg',   'Augsburg',   'Gladbach',
+  'Stuttgart',     'Bochum',   'Dortmund',    'Cologne',      'Union',
+      'Mainz',  'Frankfurt',  'Darmstadt']
+    return render_template('teams.html', teams=teams)
+@app.route('/team/<team_name>')
+def team_detail(team_name):
+    conn = sqlite3.connect('my_database.db')
+    cursor = conn.cursor()
+
+    query = """
+    SELECT player, goals
+    FROM scorers
+    WHERE team = team_name
+    ORDER BY goals DESC LIMIT 1;
+    """
+
+    cursor.execute(query, (team_name,))
+    result = cursor.fetchone()
+    conn.close()
+    if result:
+        top_player = result[0]
+        goals = result[1]
+    else:
+        top_player = "No data"
+        goals = 0
+
+    # return render_template('team_detail.html', team=team_name)
+    return render_template('team_detail.html',
+                               team=team_name,
+                               player=top_player,
+                               goals=goals)
 
 
 if __name__ == '__main__':
