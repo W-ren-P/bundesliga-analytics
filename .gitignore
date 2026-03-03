@@ -2,3 +2,10 @@ my_database.db
 *.csv
 __pycache__/
 *.pyc
+
+.*
+!/.gitignore
+.cache/
+.local/
+.virtualenvs/
+.ipython/
