@@ -18,25 +18,32 @@
         text-decoration: none;
         color: black;
       }
-      .badge {
+      /*.badge {*/
+     .team-badge {
         width: 80px;
         height: 80px;
         object-fit: contain;
+        /*background: red;*/
       }
     </style>
 </head>
 <body class="bg-light">
+    <h1 style="color:red;">TEST</h1>
     <div class="container">
         <h2 class="my-4">Bundesliga Teams</h2>
-        <div class="team-grid">
-          {% for team in teams %}
-          <a href="/team/{{ team }}" class="team-card">
-            <!--<img src="/static/badges/{{ team }}.png" class="badge" alt="{{ team }}">-->
-            <img src="{{ url_for('static', filename='badges/' + team + '.png') }}" class="badge" alt="{{ team }}">
-            <p>{{ team }}</p>
-          </a>
-          {% endfor %}
-        </div>
+<div class="team-grid">
+  {% for team in teams %}
+    {% set clean_name = team|trim %}
+    <a href="/team/{{ clean_name }}" class="team-card">
+      <!--<img src="/static/badges/{{ clean_name }}.png" class="badge" alt="{{ clean_name }}">-->
+        <img src="{{ url_for('static', filename='badges/' ~ clean_name ~ '.png') }}"
+             class="team-badge"
+             alt="{{ clean_name }}">
+
+      <p>{{ clean_name }}</p>
+    </a>
+  {% endfor %}
+</div>
     </div>
 </body>
 </html>

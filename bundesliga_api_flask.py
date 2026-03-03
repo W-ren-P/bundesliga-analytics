@@ -130,10 +130,15 @@ def db_status():
 
 @app.route('/teams')
 def teams_home():
-    teams = ['Bremen',     'Bayern', 'Leverkusen',    'Leipzig',  'Wolfsburg',
- 'Heidenheim', 'Hoffenheim',   'Freiburg',   'Augsburg',   'Gladbach',
-  'Stuttgart',     'Bochum',   'Dortmund',    'Cologne',      'Union',
-      'Mainz',  'Frankfurt',  'Darmstadt']
+    # teams = ['Bremen', 'Bayern', 'Leverkusen', 'Leipzig', 'Wolfsburg', 'Heidenheim', 'Hoffenheim', 'Freiburg', 'Augsburg','Gladbach',
+    # 'Stuttgart', 'Bochum', 'Dortmund', 'Cologne', 'Union', 'Mainz', 'Frankfurt', 'Darmstadt']
+    teams = [
+        "Bremen", "Bayern", "Leverkusen", "Leipzig", "Wolfsburg",
+        "Heidenheim", "Hoffenheim", "Freiburg", "Augsburg", "Gladbach",
+        "Stuttgart", "Bochum", "Dortmund", "Cologne", "Union",
+        "Mainz", "Frankfurt", "Darmstadt"
+    ]
+
     return render_template('teams.html', teams=teams)
 @app.route('/team/<team_name>')
 def team_detail(team_name):
