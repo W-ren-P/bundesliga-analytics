@@ -34,7 +34,7 @@
                             <label for="minutes" class="col-form-label">Show goals scored within first:</label>
                         </div>
                         <div class="col-auto">
-                            <select name="minutes" id="minutes" class="form-select">
+                            <select name="minutes" id="minutes" class="form-select" onchange="this.form.submit()">
                                 <option value="10">10 Minutes</option>
                                 <option value="15" selected>15 Minutes</option>
                                 <option value="20">20 Minutes</option>
@@ -42,9 +42,9 @@
                                 <option value="45">45 Minutes</option>
                             </select>
                         </div>
-                        <div class="col-auto">
-                            <button type="submit" class="btn btn-primary">Update</button>
-                        </div>
+                        <!--<div class="col-auto">-->
+                        <!--    <button type="submit" class="btn btn-primary">Update</button>-->
+                        <!--</div>-->
                     </form>
                         <th>Name</th>
                         <th>Goals</th>
