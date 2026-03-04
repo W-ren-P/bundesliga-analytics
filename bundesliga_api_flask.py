@@ -174,6 +174,34 @@ def team_detail(team_name):
                                goals=goals)
 
 
+@app.route('/matches-outliers')
+def match_outliers():
+
+    stats = ['totalGoals', 'totalShots', 'totalShots_on_target']
+
+    conn = sqlite3.connect(database_path)
+    cursor = conn.cursor()
+
+    results = {}
+
+    for stat in stats:
+        query = f"""
+            SELECT m.Match_name, s.{stat}
+            FROM match_cum_agg_stats s
+            JOIN matches m ON s.WS_match_id = m.WS_match_id
+            ORDER BY s.{stat} DESC
+            LIMIT 10
+        """
+
+        cursor.execute(query)
+        results[stat] = cursor.fetchall()
+
+    conn.close()
+
+    return render_template('matches_outliers.html', results=results)
+
+
+
 if __name__ == '__main__':
 # On PythonAnywhere, the 'Web' tab handles running the app,
     # but this allows for local testing if needed.
