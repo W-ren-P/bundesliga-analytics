@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Match Outliers</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-4">
+    <h2 class="mb-4">Match Outliers</h2>
+
+    {% for stat, matches in results.items() %}
+        <h4 class="mt-4">{{ stat }}</h4>
+
+        <table class="table table-striped table-hover bg-white shadow-sm">
+            <thead class="table-dark">
+                <tr>
+                    <th>Match</th>
+                    <th>{{ stat }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for match in matches %}
+                <tr>
+                    <td>{{ match[0] }}</td>
+                    <td>{{ match[1] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>
