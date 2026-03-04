@@ -142,14 +142,18 @@ def teams_home():
     return render_template('teams.html', teams=teams)
 @app.route('/team/<team_name>')
 def team_detail(team_name):
-    conn = sqlite3.connect('my_database.db')
+    # conn = sqlite3.connect('my_database.db')
+    conn = sqlite3.connect(database_path)
     cursor = conn.cursor()
 
     query = """
-    SELECT player, goals
-    FROM scorers
-    WHERE team = team_name
-    ORDER BY goals DESC LIMIT 1;
+    SELECT g.scorer_name, COUNT(*) AS goal_count
+    FROM goals g
+    JOIN teams t ON g.team_code = t.team_code
+    WHERE t.team_name = ?
+    GROUP BY g.scorer_name
+    ORDER BY goal_count DESC
+    LIMIT 1;
     """
 
     cursor.execute(query, (team_name,))
