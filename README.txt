@@ -1,5 +1,14 @@
 # vim: set ft=rst:
 
-See https://help.pythonanywhere.com/ (or click the "Help" link at the top
-right) for help on how to use PythonAnywhere, including tips on copying and
-pasting from consoles, and writing your own web applications.
+Website displaying stats for the 2023-24 Bundesliga season.
+
+Created using:
+
+- Pandas
+- Sqlalchemy & Pymysql
+- MySQL
+- SQLite
+- Flask
+- Jinja2
+- PythonAnywhere
+
