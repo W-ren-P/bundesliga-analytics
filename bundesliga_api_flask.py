@@ -189,20 +189,31 @@ def team_detail(team_name):
 def match_outliers():
 
     stats = {
-        "totalGoals": "Total Goals",
-        "totalShots": "Total Shots",
-        "totalShots_on_target": "Shots on Target"
+        "totalGoals": "Total goals",
+        "totalShots": "Total shots",
+        "totalShots_on_target": "Shots on target"
+    }
+
+    team_stats = {
+        "Goals": "Goals",
+        "Shots": "Shots",
+        "Shots_on_target": "Shots on target",
+        "Fouls": "Fouls"
     }
 
     selected_stat = request.args.get("stat", "totalGoals")
+    selected_team_stat = request.args.get("team_stat", "Goals")
 
     if selected_stat not in stats:
         selected_stat = "totalGoals"
 
+    if selected_team_stat not in team_stats:
+        selected_team_stat = "Goals"
+
     conn = sqlite3.connect(database_path)
     cursor = conn.cursor()
 
-    query = f"""
+    query1 = f"""
         SELECT m.Match_name, s.{selected_stat}
         FROM match_cum_agg_stats s
         JOIN matches m ON s.WS_match_id = m.WS_match_id
@@ -210,16 +221,39 @@ def match_outliers():
         LIMIT 10
     """
 
-    cursor.execute(query)
-    results = cursor.fetchall()
+    cursor.execute(query1)
+    results1 = cursor.fetchall()
+
+    query2 = f"""
+        SELECT m.Match_name, t.team_name, s.{selected_team_stat}
+        FROM team_match_stats s
+        JOIN matches m ON s.match_id = m.WS_match_id
+        JOIN teams t ON s.Team_Code = t.team_code
+        ORDER BY s.{selected_team_stat} DESC
+        LIMIT 10
+    """
+
+    cursor.execute(query2)
+    results2 = cursor.fetchall()
 
     conn.close()
+
+    # return render_template(
+    #     "matches.html",
+    #     stats=stats,
+    #     selected_stat=selected_stat,
+    #     results=results, page_title="Matches"
+    # )
 
     return render_template(
         "matches.html",
         stats=stats,
+        team_stats=team_stats,
         selected_stat=selected_stat,
-        results=results, page_title="Matches"
+        selected_team_stat=selected_team_stat,
+        results1=results1,
+        results2=results2,
+        page_title="Matches"
     )
 
 

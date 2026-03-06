@@ -24,6 +24,7 @@ object-fit: contain;
 }
 
 .bundesliga-red {
-    background-color: #E2001A;
+/*.bundesliga-red th {*/
+    background-color: #E2001A !important;
 }
 
