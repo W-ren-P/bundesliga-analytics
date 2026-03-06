@@ -165,11 +165,24 @@ def team_detail(team_name):
         top_player = "No data"
         goals = 0
 
-    # return render_template('team_detail.html', team=team_name)
+    # # return render_template('team_detail.html', team=team_name)
+    # return render_template('team_detail.html',
+    #                           team=team_name,
+    #                           player=top_player,
+    #                           goals=goals, page_title="Team page")
+
+    df_info = pd.read_csv('/home/WrenP/teams_info.csv', encoding = 'latin-1')
+    df_info['team_name'] = df_info['team_name'].str.strip()
+    team_info = df_info[df_info['team_name'] == team_name].iloc[0]
+
     return render_template('team_detail.html',
                                team=team_name,
                                player=top_player,
-                               goals=goals, page_title="Team page")
+                               goals=goals,
+                               page_title="Team page",
+                               established=team_info['established'],
+                               stadium=team_info['stadium'],
+                               capacity=team_info['capacity'])
 
 
 @app.route('/matches')

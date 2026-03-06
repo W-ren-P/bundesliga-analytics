@@ -11,13 +11,33 @@
          class="mb-3"
          style="width: 150px; height: 150px; object-fit: contain;">
 
-    <h1 class="mb-4">{{ team }}</h1>
+    <h1 class="fw-bold">{{ team }}</h1>
 
-    <p><strong>Top scorer:</strong> {{ player }}</p>
-    <p><strong>Goals:</strong> {{ goals }}</p>
-
-    <a href="/teams" class="btn btn-secondary mt-3">Back to Teams</a>
+    <p class="mb-1"><strong>Established:</strong> {{ established }}</p>
+    <p class="mb-1"><strong>Stadium:</strong> {{ stadium }}</p>
+    <p><strong>Capacity:</strong> {{ capacity }}</p>
 </div>
+
+<div class="card shadow-sm" style="max-width: 300px;">
+    <div class="card-body text-center">
+        <h4 class="card-title fw-semibold">Top scorer</h4>
+        <p class="mb-1">{{ player }}</p>
+        <p class="">{{ goals }} goals</p>
+    </div>
+</div>
+
+<br>
+<a href="/teams" class="btn btn-secondary mt-3 bundesliga-red !important">Back to Teams</a>
+<br>
+<br>
+
+
+
+<!--    <p><strong>Top scorer:</strong> {{ player }}</p>-->
+<!--    <p><strong>Goals:</strong> {{ goals }}</p>-->
+
+<!--    <a href="/teams" class="btn btn-secondary mt-3">Back to Teams</a>-->
+<!--</div>-->
 
 
 
