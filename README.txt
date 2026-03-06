@@ -1,5 +1,7 @@
 # vim: set ft=rst:
 
+https://wrenp.pythonanywhere.com/
+
 Website displaying stats for the 2023-24 Bundesliga season.
 
 Created using:
