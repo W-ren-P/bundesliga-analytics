@@ -85,7 +85,17 @@ def referees():
             GROUP BY referees.ref_code, referees.ref_name
             ORDER BY metric DESC;
         """
-        label = "Total Cards" # Defined here
+        label = "Total cards" # Defined here
+    elif view == 'red':
+        query = """
+            SELECT referees.ref_name, SUM(match_cum_agg_stats.totalRed_Cards) AS metric
+            FROM match_cum_agg_stats
+            JOIN matches ON match_cum_agg_stats.WS_match_id = matches.WS_match_id
+            JOIN referees ON referees.ref_code = matches.refereeCode
+            GROUP BY referees.ref_code, referees.ref_name
+            ORDER BY metric DESC;
+        """
+        label = "Total red cards" # Defined here
     else:
         query = """
             SELECT referees.ref_name,
@@ -96,7 +106,7 @@ def referees():
             GROUP BY referees.ref_code, referees.ref_name
             ORDER BY metric DESC;
         """
-        label = "Cards Per Game" # YOU NEEDED THIS LINE
+        label = "Cards per game" # YOU NEEDED THIS LINE
 
     df = pd.read_sql(query, engine)
     data = df.to_dict(orient='records')
