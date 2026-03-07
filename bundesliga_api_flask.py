@@ -149,7 +149,7 @@ def teams_home():
     ]
     teams = sorted(teams)
     return render_template('teams.html', teams=teams, page_title="Teams")
-@app.route('/team/<team_name>')
+@app.route('/teams/<team_name>')
 def team_detail(team_name):
     # conn = sqlite3.connect('my_database.db')
     conn = sqlite3.connect(database_path)

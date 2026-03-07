@@ -16,7 +16,7 @@
 <div class="team-grid">
   {% for team in teams %}
     {% set clean_name = team|trim %}
-    <a href="/team/{{ clean_name }}" class="team-card">
+    <a href="/teams/{{ clean_name }}" class="team-card">
       <!--<img src="/static/badges/{{ clean_name }}.png" class="badge" alt="{{ clean_name }}">-->
         <img src="{{ url_for('static', filename='badges/' ~ clean_name ~ '.png') }}"
              class="team-badge"
