@@ -13,25 +13,29 @@
     <select name="view" class="form-select w-auto" onchange="this.form.submit()">
         <option value="average" {% if current_view == 'average' %}selected{% endif %}>Cards per game</option>
         <option value="total" {% if current_view == 'total' %}selected{% endif %}>Total cards</option>
+        <option value="red" {% if current_view == 'red' %}selected{% endif %}>Red cards</option>
     </select>
 </form>
 
-<table class="table table-striped">
-    <thead class="table-dark">
-        <tr>
-            <!--<th>Referee</th>-->
-            <th style="background-color: #E2001A !important; color: white !important; width: 60%; vertical-align: middle; ">Referee</th>
-            <!--<th>{{ metric_label }}</th>-->
-            <th style="background-color: #E2001A !important; color: white !important; width: 60%; vertical-align: middle; ">{{ metric_label }}</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for ref in referees %}
-        <tr>
-            <td>{{ ref.ref_name }}</td>
-            <td>{{ ref.metric }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class="col-md-5">
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <!--<th>Referee</th>-->
+                <th style="background-color: #E2001A !important; color: white !important; width: 50%; vertical-align: middle; text-align: center;">Referee</th>
+                <!--<th>{{ metric_label }}</th>-->
+                <th style="background-color: #E2001A !important; color: white !important; width: 50%; vertical-align: middle; text-align: center;">{{ metric_label }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ref in referees %}
+            <tr>
+                <td style="padding-left: 90px;">{{ ref.ref_name }}</td>
+                <td style="text-align: center;">{{ ref.metric }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
 {% endblock %}
