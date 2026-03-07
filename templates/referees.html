@@ -6,36 +6,43 @@
 <h1 class="fw-bold text-center">Referees</h1>
 <br>
 
+<!--<h2 class="mb-4 text-center">Referee statistics</h2>-->
 
-<h2 class="mb-4">Referee statistics</h2>
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-header bundesliga-red text-white">
+                <h4 class="mb-0">Referee statistics...</h4>
+            </div>
+            <div class="card-body">
 
-<form method="GET" class="mb-4">
-    <select name="view" class="form-select w-auto" onchange="this.form.submit()">
-        <option value="average" {% if current_view == 'average' %}selected{% endif %}>Cards per game</option>
-        <option value="total" {% if current_view == 'total' %}selected{% endif %}>Total cards</option>
-        <option value="red" {% if current_view == 'red' %}selected{% endif %}>Red cards</option>
-    </select>
-</form>
+                <form method="GET" class="mb-3">
+                    <select name="view" class="form-select w-auto" onchange="this.form.submit()">
+                        <option value="average" {% if current_view == 'average' %}selected{% endif %}>Cards per game</option>
+                        <option value="total" {% if current_view == 'total' %}selected{% endif %}>Total cards</option>
+                        <option value="red" {% if current_view == 'red' %}selected{% endif %}>Red cards</option>
+                    </select>
+                </form>
 
-<div class="col-md-5">
-    <table class="table table-striped">
-        <thead class="table-dark">
-            <tr>
-                <!--<th>Referee</th>-->
-                <th style="background-color: #E2001A !important; color: white !important; width: 50%; vertical-align: middle; text-align: center;">Referee</th>
-                <!--<th>{{ metric_label }}</th>-->
-                <th style="background-color: #E2001A !important; color: white !important; width: 50%; vertical-align: middle; text-align: center;">{{ metric_label }}</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for ref in referees %}
-            <tr>
-                <td style="padding-left: 90px;">{{ ref.ref_name }}</td>
-                <td style="text-align: center;">{{ ref.metric }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+                <table class="table table-striped table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>Referee</th>
+                            <th class="text-center">{{ metric_label }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for ref in referees %}
+                        <tr>
+                            <td style="padding-left: 20px;">{{ ref.ref_name }}</td>
+                            <td class="text-center">{{ ref.metric }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
