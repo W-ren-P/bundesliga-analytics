@@ -50,13 +50,37 @@ def home():
 # ##    return jsonify(df.to_dict(orient='records'))
 #     return render_template('index.html', scorers=data)
 # @app.route('/top-scorers')
+#
+# @app.route('/players')
+# def top_scorers():
+#     # 1. Get the 'minutes' value from the URL (default to 15 if not found)
+#     selected_mins = request.args.get('minutes', default=15, type=int)
+
+#     # 2. Use the variable in your SQL query
+#     query = f"""
+#         SELECT scorer_name, COUNT(*) AS goal_count
+#         FROM goals
+#         WHERE minute < :mins
+#         GROUP BY scorer_name
+#         ORDER BY goal_count DESC
+#         LIMIT 15
+#     """
+
+#     # 3. Pass the variable into the execute command
+#     df = pd.read_sql(query, engine, params={'mins': selected_mins})
+
+#     data = df.to_dict(orient='records')
+#         # return render_template('index.html', scorers=data)
+#     # return render_template('index.html', scorers=data, current_mins=selected_mins, page_title="Top scorers")
+#     return render_template('players.html', scorers=data, current_mins=selected_mins, page_title="Players")
+#
 @app.route('/players')
 def top_scorers():
-    # 1. Get the 'minutes' value from the URL (default to 15 if not found)
     selected_mins = request.args.get('minutes', default=15, type=int)
 
-    # 2. Use the variable in your SQL query
-    query = f"""
+    selected_after_mins = request.args.get('after_mins', default=75, type=int)
+
+    query_before = """
         SELECT scorer_name, COUNT(*) AS goal_count
         FROM goals
         WHERE minute < :mins
@@ -64,14 +88,28 @@ def top_scorers():
         ORDER BY goal_count DESC
         LIMIT 15
     """
+    df_before = pd.read_sql(query_before, engine, params={'mins': selected_mins})
+    data_before = df_before.to_dict(orient='records')
 
-    # 3. Pass the variable into the execute command
-    df = pd.read_sql(query, engine, params={'mins': selected_mins})
+    query_after = """
+        SELECT scorer_name, COUNT(*) AS goal_count
+        FROM goals
+        WHERE minute > :mins
+        GROUP BY scorer_name
+        ORDER BY goal_count DESC
+        LIMIT 15
+    """
+    df_after = pd.read_sql(query_after, engine, params={'mins': selected_after_mins})
+    data_after = df_after.to_dict(orient='records')
 
-    data = df.to_dict(orient='records')
-        # return render_template('index.html', scorers=data)
-    # return render_template('index.html', scorers=data, current_mins=selected_mins, page_title="Top scorers")
-    return render_template('players.html', scorers=data, current_mins=selected_mins, page_title="Players")
+    return render_template('players.html',
+                         scorers_before=data_before,
+                         scorers_after=data_after,
+                         current_mins=selected_mins,
+                         current_after_mins=selected_after_mins,
+                         page_title="Players")
+
+
 
 @app.route('/referees')
 def referees():
