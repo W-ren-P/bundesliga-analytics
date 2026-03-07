@@ -2,20 +2,27 @@
 {% block title %}Referees{% endblock %}
 
 {% block content %}
-<h2 class="mb-4">Referee Statistics</h2>
+
+<h1 class="fw-bold text-center">Referees</h1>
+<br>
+
+
+<h2 class="mb-4">Referee statistics:</h2>
 
 <form method="GET" class="mb-4">
     <select name="view" class="form-select w-auto" onchange="this.form.submit()">
-        <option value="average" {% if current_view == 'average' %}selected{% endif %}>Averages</option>
-        <option value="total" {% if current_view == 'total' %}selected{% endif %}>Totals</option>
+        <option value="average" {% if current_view == 'average' %}selected{% endif %}>Cards per game</option>
+        <option value="total" {% if current_view == 'total' %}selected{% endif %}>Total cards</option>
     </select>
 </form>
 
 <table class="table table-striped">
     <thead class="table-dark">
         <tr>
-            <th>Referee</th>
-            <th>{{ metric_label }}</th>
+            <!--<th>Referee</th>-->
+            <th style="background-color: #E2001A !important; color: white !important; width: 60%; vertical-align: middle; ">Referee</th>
+            <!--<th>{{ metric_label }}</th>-->
+            <th style="background-color: #E2001A !important; color: white !important; width: 60%; vertical-align: middle; ">{{ metric_label }}</th>
         </tr>
     </thead>
     <tbody>
