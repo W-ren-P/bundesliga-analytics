@@ -219,7 +219,7 @@ def team_detail(team_name):
     #                           player=top_player,
     #                           goals=goals, page_title="Team page")
 
-    df_info = pd.read_csv('/home/WrenP/teams_info.csv', encoding = 'utf-8')
+    df_info = pd.read_csv('/home/WrenP/teams_info.csv', encoding = 'latin-1')
     df_info['team_name'] = df_info['team_name'].str.strip()
     team_info = df_info[df_info['team_name'] == team_name].iloc[0]
 
