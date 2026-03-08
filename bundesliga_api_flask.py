@@ -239,14 +239,39 @@ def match_outliers():
     stats = {
         "totalGoals": "Total goals",
         "totalShots": "Total shots",
-        "totalShots_on_target": "Shots on target"
+        "totalShots_on_target": "Total shots on target",
+        "totalWoodwork_shots":"Total woodwork shots",
+        "totalPenalty_shots":"Total penalties",
+        "totalFouls":"Total fouls",
+        "totalTotal_Cards":"Total cards",
+        "totalRed_Cards":"Total red cards",
+        "totalDribbles_won":"Total successful dribbles",
+        "totalLong_Balls":"Total long balls",
+        "totalAerials":"Total aerial duels",
+        "totalTackles_Attempted":"Total tackles"
     }
 
     team_stats = {
         "Goals": "Goals",
         "Shots": "Shots",
         "Shots_on_target": "Shots on target",
-        "Fouls": "Fouls"
+        "Shots_off_Target_b":"Off-target shots",
+        "Conversion_Rate_percent":"Shot conversion rate (%)",
+        "Penalty_shots":"Penalties",
+        "Outside_of_box_shots":"Shots from outside the box",
+        "Left_foot_shots":"Left-foot shots",
+        "Headed_shots":"Headed shots",
+        "Fouls": "Fouls",
+        "Total_Cards":"Cards",
+        "Total_Passes":"Passes",
+        "Crosses":"Crosses",
+        "Long_Balls":"Long balls",
+        "Average_Pass_Streak":"Average pass streak",
+        "Possession_percent":"Possession (%)",
+        "Pass_Success_percent":"Pass accuracy (%)",
+        "Dribbles_won":"Successful dribbles",
+        "Aerial_Duel_Success_percent":"Aerial duel success (%)",
+        "Offsides":"Offsides",
     }
 
     selected_stat = request.args.get("stat", "totalGoals")

@@ -60,3 +60,53 @@ object-fit: contain;
     z-index: 2;
 }
 
+
+.table thead th {
+    vertical-align: middle !important;
+    text-align: center;
+}
+
+
+/* Left table */
+#team-performance-table {
+    table-layout: fixed;
+}
+
+#team-performance-table th:nth-child(1),
+#team-performance-table td:nth-child(1) {
+    width: 55%;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+#team-performance-table th:nth-child(2),
+#team-performance-table td:nth-child(2) {
+    width: 20%;
+    white-space: nowrap;
+}
+
+#team-performance-table th:nth-child(3),
+#team-performance-table td:nth-child(3) {
+    width: 25%;
+    white-space: break-word;
+}
+
+/* Right table */
+#match-performance-table {
+    table-layout: fixed;
+}
+
+#match-performance-table th:nth-child(1),
+#match-performance-table td:nth-child(1) {
+    width: 77%;
+    white-space: nowrap;
+    word-wrap: break-word;
+}
+
+#match-performance-table th:nth-child(2),
+#match-performance-table td:nth-child(2) {
+    width: 23%;
+    white-space: normal;  /* Changed to normal to allow wrapping */
+    word-wrap: break-word;
+}
+
