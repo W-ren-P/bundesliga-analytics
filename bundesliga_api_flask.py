@@ -187,6 +187,7 @@ def teams_home():
     ]
     teams = sorted(teams)
     return render_template('teams.html', teams=teams, page_title="Teams")
+#
 @app.route('/teams/<team_name>')
 def team_detail(team_name):
     # conn = sqlite3.connect('my_database.db')
@@ -223,6 +224,13 @@ def team_detail(team_name):
     df_info['team_name'] = df_info['team_name'].str.strip()
     team_info = df_info[df_info['team_name'] == team_name].iloc[0]
 
+    df_table = pd.read_csv('/home/WrenP/table.csv')
+    df_table.columns = df_table.columns.str.strip()
+    df_table['Team'] = df_table['Team'].str.strip()
+    team_table = df_table[df_table['Team'] == team_name].iloc[0]
+
+
+
     return render_template('team_detail.html',
                                team=team_name,
                                player=top_player,
@@ -230,7 +238,11 @@ def team_detail(team_name):
                                page_title="Team page",
                                established=team_info['established'],
                                stadium=team_info['stadium'],
-                               capacity=team_info['capacity'])
+                               capacity=team_info['capacity'],
+                               position=team_table['Pos'],
+                               wins=team_table['W'],
+                               goals_scored=team_table['GF'
+                               ])
 
 
 @app.route('/matches')

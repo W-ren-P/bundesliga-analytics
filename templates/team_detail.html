@@ -9,7 +9,7 @@
     <img src="{{ url_for('static', filename='stadia/stadium_' + team.lower() + '.webp') }}"
          alt="{{ stadium }}"
          style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7);">
-    
+
     <div class="position-absolute top-50 start-50 translate-middle w-100">
         <div class="container">
             <div class="row justify-content-center">
@@ -20,9 +20,9 @@
                                  alt="{{ team }} badge"
                                  class="mb-3"
                                  style="width: 120px; height: 120px; object-fit: contain; background-color: rgba(255,255,255,0.1); border-radius: 50%; padding: 10px;">
-                            
+
                             <h1 class="fw-bold mb-3">{{ team }}</h1>
-                            
+
                             <div class="row">
                                 <div class="col-6 text-end">
                                     <p class="mb-1"><strong>Established:</strong></p>
@@ -43,19 +43,56 @@
     </div>
 </div>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-4">
-            <div class="card shadow-sm text-center">
-                <div class="card-body">
-                    <h4 class="card-title fw-semibold bundesliga-red text-white p-2 rounded-top">Top scorer</h4>
-                    <p class="mb-1 mt-3 fs-5">{{ player }}</p>
-                    <p class="fs-4 fw-bold">{{ goals }} goals</p>
-                </div>
+<!--<div class="container">-->
+<!--    <div class="row justify-content-center">-->
+<!--        <div class="col-md-3">-->
+<!--            <div class="card shadow-sm text-center">-->
+<!--                <div class="card-body">-->
+<!--                    <h4 class="card-title fw-semibold bundesliga-red text-white p-2 rounded-top">Top scorer</h4>-->
+<!--                    <p class="mb-1 mt-3 fs-5">{{ player }}</p>-->
+<!--                    <p class="fs-4 fw-bold">{{ goals }} goals</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<div class="row justify-content-center">
+    <div class="col-md-3">
+        <div class="card shadow-sm text-center">
+            <div class="card-body">
+                <h4 class="card-title fw-semibold bundesliga-red text-white p-2 rounded-top">Top scorer</h4>
+                <p class="mb-1 mt-3 fs-5">{{ player }}</p>
+                <p class="fs-4 fw-bold">{{ goals }} goals</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm text-center">
+            <div class="card-body">
+                <h4 class="card-title fw-semibold bundesliga-red text-white p-2 rounded-top">Final position</h4>
+                <p class="fs-1 fw-bold mt-3">{{ position }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm text-center">
+            <div class="card-body">
+                <h4 class="card-title fw-semibold bundesliga-red text-white p-2 rounded-top">Wins</h4>
+                <p class="fs-1 fw-bold mt-3">{{ wins }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm text-center">
+            <div class="card-body">
+                <h4 class="card-title fw-semibold bundesliga-red text-white p-2 rounded-top">Goals scored</h4>
+                <p class="fs-1 fw-bold mt-3">{{ goals_scored }}</p>
             </div>
         </div>
     </div>
 </div>
+
 
 <br>
 <div class="text-center">
