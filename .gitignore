@@ -1,4 +1,5 @@
 my_database.db
+my_database_backup.db
 *.csv
 __pycache__/
 *.pyc
