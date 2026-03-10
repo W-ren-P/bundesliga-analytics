@@ -6,6 +6,25 @@
 <h1 class="fw-bold text-center">Players</h1>
 <br>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const savedMinutes = sessionStorage.getItem('selectedMinutes');
+    const savedAfterMins = sessionStorage.getItem('selectedAfterMins');
+
+    if (savedMinutes) {
+        document.getElementById('minutes').value = savedMinutes;
+    }
+    if (savedAfterMins) {
+        document.getElementById('after_mins').value = savedAfterMins;
+    }
+});
+function saveAndSubmit(selectElement, paramName) {
+    sessionStorage.setItem('selectedMinutes', document.getElementById('minutes').value);
+    sessionStorage.setItem('selectedAfterMins', document.getElementById('after_mins').value);
+    selectElement.form.submit();
+}
+</script>
+
 <h2 class="mb-4 text-center">Top goalscorers by time period</h2>
 
 <div class="row">
@@ -22,7 +41,8 @@
                             <label for="minutes" class="col-form-label">Before minute:</label>
                         </div>
                         <div class="col-auto">
-                            <select name="minutes" id="minutes" class="form-select" onchange="this.form.submit()">
+                            <!--<select name="minutes" id="minutes" class="form-select" onchange="this.form.submit()">-->
+                            <select name="minutes" id="minutes" class="form-select" onchange="saveAndSubmit(this, 'minutes')">
                                 {% for mins in [5, 10, 15, 30, 45] %}
                                     <option value="{{ mins }}" {% if mins == current_mins %}selected{% endif %}>
                                         {{ mins }}
@@ -66,7 +86,8 @@
                             <label for="after_mins" class="col-form-label">After minute:</label>
                         </div>
                         <div class="col-auto">
-                            <select name="after_mins" id="after_mins" class="form-select" onchange="this.form.submit()">
+                            <!--<select name="after_mins" id="after_mins" class="form-select" onchange="this.form.submit()">-->
+                            <select name="after_mins" id="after_mins" class="form-select" onchange="saveAndSubmit(this, 'after_mins')">
                                 {% for mins in [45, 60, 75, 80, 85, 90] %}
                                     <option value="{{ mins }}" {% if mins == current_after_mins %}selected{% endif %}>
                                         {{ mins }}
