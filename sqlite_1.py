@@ -9,8 +9,8 @@ csv_files = [
     'goals.csv',
     'match_cum_agg_stats.csv',
     'matches.csv',
-    'referees.csv',
     'team_match_stats.csv',
+    'referees.csv',
     'teams.csv'
 ]
 
