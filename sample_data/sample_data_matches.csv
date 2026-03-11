@@ -1,0 +1,10 @@
+WS_match_id,Match_name,MD,Day,Date,Time,venue,Attendance,refereeCode,Weather,home_Team_Code,away_Team_Code,Result,halftime_score,halftime_score_HT,halftime_score_AT,Score,HT_score,AT_score
+1743393,Bremen 0:4 Bayern (Fri 18-Aug-23),1,Fri,18/08/2023,19:30:00,wohninvest WESERSTADION,0,1128,-,42,37,AW,00:01,0,1,00:04,0,4
+1743394,Leverkusen 3:2 Leipzig (Sat 19-Aug-23),1,Sat,19/08/2023,14:30:00,BayArena,0,1210,-,36,7614,HW,02:01,2,1,03:02,3,2
+1743396,Wolfsburg 2:0 Heidenheim (Sat 19-Aug-23),1,Sat,19/08/2023,14:30:00,Volkswagen Arena,0,2447,-,33,4852,HW,02:00,2,0,02:00,2,0
+1743397,Hoffenheim 1:2 Freiburg (Sat 19-Aug-23),1,Sat,19/08/2023,14:30:00,PreZero Arena,0,1398,-,1211,50,AW,00:02,0,2,01:02,1,2
+1743398,Augsburg 4:4 Gladbach (Sat 19-Aug-23),1,Sat,19/08/2023,14:30:00,WWK ARENA,0,2488,-,1730,134,D,03:03,3,3,04:04,4,4
+1743399,Stuttgart 5:0 Bochum (Sat 19-Aug-23),1,Sat,19/08/2023,14:30:00,MHP Arena,0,1403,-,41,109,HW,02:00,2,0,05:00,5,0
+1743392,Dortmund 1:0 Cologne (Sat 19-Aug-23),1,Sat,19/08/2023,17:30:00,SIGNAL IDUNA PARK,0,1055,-,44,282,HW,00:00,0,0,01:00,1,0
+1743391,Union 4:Mainz (Sun 20-Aug-23),1,Sun,20/08/2023,14:30:00,An der Alten FÃÂ¶rsterei,0,1396,-,796,219,HW,02:00,2,0,04:01,4,1
+1743395,Frankfurt 1:0 Darmstadt (Sun 20-Aug-23),1,Sun,20/08/2023,16:30:00,Deutsche Bank Park,0,166,-,45,1147,HW,01:00,1,0,01:00,1,0

@@ -1,6 +1,7 @@
 my_database.db
 my_database_backup.db
 *.csv
+!sample_data/*.csv
 __pycache__/
 *.pyc
 
