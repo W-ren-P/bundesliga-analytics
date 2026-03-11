@@ -2,9 +2,6 @@ import pandas as pd
 from sqlalchemy import create_engine, inspect
 import os
 
-# --- SETTINGS ---
-# For PythonAnywhere, we'll use a relative path or your home directory
-##folder_path = r"D:\Users\olive\Documents\Dad\wk8-10\data"
 folder_path = '.'
 os.chdir(folder_path)
 
@@ -17,10 +14,8 @@ csv_files = [
     'teams.csv'
 ]
 
-# Create the SQLite engine
 engine = create_engine('sqlite:///my_database.db')
 
-# --- IMPORT LOGIC ---
 print("--- Starting Import ---")
 for file in csv_files:
     # Use the filename (without .csv) as the table name
@@ -33,7 +28,6 @@ for file in csv_files:
     except Exception as e:
         print(f"Error importing {file}: {e}")
 
-# --- VERIFICATION (Row Counts) ---
 print("\n--- Final Table Stats ---")
 inspector = inspect(engine)
 tables = inspector.get_table_names()
