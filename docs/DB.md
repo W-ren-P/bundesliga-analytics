@@ -1,8 +1,94 @@
 # DB
 
+## Sample data
+
 [Sample data can be found here](https://github.com/W-ren-P/bundesliga-analytics/tree/main/sample_data)
 
-## Example sql queries
+The following files contain the full data used in the main site:
+
+- referees.csv
+- table.csv
+- teams.csv
+- teams_info.csv
+
+The following files contain only sample data:
+
+- sample_data_goals.csv
+- sample_data_main.csv
+- sample_data_match_cum_agg_stats.csv
+- sample_data_matches.csv
+- sample_data_team_match_stats.csv
+
+
+## Example Python scripts
+
+All bar one of the smaller csv files can be created from the "sample_data_main.csv" file with this simple Python script:
+
+```python
+import pandas as pd
+import os
+
+file_to_read = "sample_data_main.csv"
+folder_to_read = yourfolder
+file_to_save = "youroutputfilename.csv"
+
+cols_to_use = [yourcolumnstouse]
+os.chdir(folder_to_read)
+
+df = pd.read_csv(file_to_read, index_col = False, encoding = "cp1252")
+df = df[cols_to_use]
+df.drop_duplicates(inplace = True)
+df.to_csv(file_to_save, index=False, encoding = "utf8")
+```
+
+Creating the sample_data_goals.csv file requires this Python script:
+
+```python
+import pandas as pd
+import os
+
+file_to_read = "sample_data_main.csv"
+folder_to_read = yourfolder
+file_to_save = "sample_data_goals.csv"
+
+os.chdir(folder_to_read)
+df = pd.read_csv(file_to_read, index_col = False)
+
+df_ht = df[df['HTorAT'] == 'HT'].copy()
+all_goals = []
+
+for i in range(1, 11):
+
+    ht_goals = df_ht[[
+        'WS_match_id',
+        'home_Team_Code',
+        f'HT_goalscorers_{i}',
+        f'HT_goalscorers_{i}_code',
+        f'HT_goal_mins_{i}'
+    ]].copy()
+    ht_goals.columns = ['match_id', 'team_code', 'scorer_name', 'scorer_code', 'minute']
+
+    at_goals = df_ht[[
+        'WS_match_id',
+        'away_Team_Code',
+        f'AT_goalscorers_{i}',
+        f'AT_goalscorers_{i}_code',
+        f'AT_goal_mins_{i}'
+    ]].copy()
+    at_goals.columns = ['match_id', 'team_code', 'scorer_name', 'scorer_code', 'minute']
+
+    all_goals.append(ht_goals)
+    all_goals.append(at_goals)
+
+goals_df = pd.concat(all_goals, ignore_index=True)
+goals_df = goals_df.dropna(subset=['scorer_name'])
+goals_df = goals_df.sort_values(['match_id', 'minute']).reset_index(drop=True)
+goals_df.insert(0, 'goal_id', range(1, len(goals_df) + 1))
+
+goals_df.to_csv(file_to_save, index=False)
+```
+
+## Example SQL queries
 
 Create goals table:
 
