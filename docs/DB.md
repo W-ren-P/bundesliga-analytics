@@ -6,18 +6,18 @@
 
 The following files contain the full data used in the main site:
 
-- referees.csv
-- table.csv
-- teams.csv
-- teams_info.csv
+- [referees.csv](https://github.com/W-ren-P/bundesliga-analytics/blob/main/sample_data/referees.csv)
+- [table.csv](https://github.com/W-ren-P/bundesliga-analytics/blob/main/sample_data/table.csv)
+- [teams.csv](https://github.com/W-ren-P/bundesliga-analytics/blob/main/sample_data/teams.csv)
+- [teams_info.csv](https://github.com/W-ren-P/bundesliga-analytics/blob/main/sample_data/teams_info.csv)
 
 The following files contain only sample data:
 
-- sample_data_goals.csv
-- sample_data_main.csv
-- sample_data_match_cum_agg_stats.csv
-- sample_data_matches.csv
-- sample_data_team_match_stats.csv
+- [sample_data_goals.csv](https://github.com/W-ren-P/bundesliga-analytics/blob/main/sample_data/sample_data_goals.csv)
+- [sample_data_main.csv](https://github.com/W-ren-P/bundesliga-analytics/blob/main/sample_data/sample_data_main.csv)
+- [sample_data_match_cum_agg_stats.csv](https://github.com/W-ren-P/bundesliga-analytics/blob/main/sample_data/sample_data_match_cum_agg_stats.csv)
+- [sample_data_matches.csv](https://github.com/W-ren-P/bundesliga-analytics/blob/main/sample_data/sample_data_matches.csv)
+- [sample_data_team_match_stats.csv](https://github.com/W-ren-P/bundesliga-analytics/blob/main/sample_data/sample_data_team_match_stats.csv)
 
 
 ## Example Python scripts
@@ -413,6 +413,6 @@ CREATE TABLE match_cum_agg_stats (
 
 ## Sample data
 
-Once the csv files have been created, the database is created using sqlite_1.py
+Once the csv files have been created, the database is created using [sqlite_1.py](https://github.com/W-ren-P/bundesliga-analytics/blob/main/sqlite_1.py)
 
 
