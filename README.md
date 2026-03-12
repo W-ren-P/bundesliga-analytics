@@ -6,8 +6,7 @@ Created using:
 
 - Pandas
 - Sqlalchemy & Pymysql
-- MySQL
-- SQLite
+- MySQL & SQLite
 - Flask
 - Jinja2
 - PythonAnywhere
