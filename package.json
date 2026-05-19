@@ -1,0 +1,24 @@
+{
+  "name": "bundesliga-analytics",
+  "version": "1.0.0",
+  "description": "https://wrenp.pythonanywhere.com/",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/W-ren-P/bundesliga-analytics.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/W-ren-P/bundesliga-analytics/issues"
+  },
+  "homepage": "https://github.com/W-ren-P/bundesliga-analytics#readme"
+}

@@ -37,7 +37,6 @@ object-fit: contain;
     position: relative;
     min-height: 100vh;
     min-width: 100%;
-    background-image: url('/static/meisterschale_b.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -45,7 +44,7 @@ object-fit: contain;
     padding: 2rem 0;
     margin: 0;
     overflow: hidden;
-    background-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('/static/meisterschale_b.webp');
+    background-image: linear-gradient(rgb(255 255 255 / 70%), rgb(255 255 255 / 70%)), url('/static/meisterschale_b.webp');
 }
 
 /*.homepage-background::before {*/
@@ -87,7 +86,7 @@ html, body {
 #team-performance-table td:nth-child(1) {
     width: 55%;
     white-space: normal;
-    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 #team-performance-table th:nth-child(2),
@@ -99,7 +98,8 @@ html, body {
 #team-performance-table th:nth-child(3),
 #team-performance-table td:nth-child(3) {
     width: 25%;
-    white-space: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
 }
 
 /* Right table */
@@ -111,13 +111,13 @@ html, body {
 #match-performance-table td:nth-child(1) {
     width: 77%;
     white-space: nowrap;
-    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 #match-performance-table th:nth-child(2),
 #match-performance-table td:nth-child(2) {
     width: 23%;
     white-space: normal;  /* Changed to normal to allow wrapping */
-    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
