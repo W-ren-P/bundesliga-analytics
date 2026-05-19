@@ -1,75 +1,92 @@
-{% block container_class %}{% endblock %}
-
-{% extends "base.html" %}
-{% block title %}Home{% endblock %}
-
-{% block content %}
+{% block container_class %}{% endblock %} {% extends "base.html" %} {% block
+title %}Home{% endblock %} {% block content %}
 
 <div class="homepage-background">
-    <div class="container-fluid">
+  <div class="container-fluid">
+    <!--<div class="text-center mb-5">-->
+    <!--    <h1 class="fw-bold text-center md-3 text-black"> <br> </h1>-->
+    <!--</div>-->
 
-        <!--<div class="text-center mb-5">-->
-        <!--    <h1 class="fw-bold text-center md-3 text-black"> <br> </h1>-->
-        <!--</div>-->
-
-        <div class="row justify-content-center mb-4">
-            <div class="col-md-6">
-                <div class="card shadow-sm text-center p-4" style="background-color: #f8f9fa;">
-                    <p class="fw-bold text-black mb-0" style="font-size: 1.2rem;">
-                        Statistics covering players, teams, matches and referees<br>for the 2023-24 German Bundesliga season.
-                    </p>
-                </div>
-            </div>
+    <div class="row justify-content-center mb-4">
+      <div class="col-md-6">
+        <div
+          class="card shadow-sm text-center p-4"
+          style="background-color: #f8f9fa"
+        >
+          <p class="fw-bold text-black mb-0" style="font-size: 1.2rem">
+            Statistics covering players, teams, matches and referees<br />for
+            the 2023-24 German Bundesliga season.
+          </p>
         </div>
-
-
-        <div class="row g-4">
-            <div class="col-md-6 col-lg-3">
-                <a href="/teams" class="text-decoration-none text-dark">
-                    <div class="card h-100 shadow-sm hover-shadow text-center p-3">
-                        <img src="{{ url_for('static', filename='icons/badge_e.png') }}" class="card-img-top mx-auto" style="width: 100px; height: 100px; object-fit: contain;" alt="Teams">
-                        <div class="card-body">
-                            <h3 class="card-title">Teams</h3>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-6 col-lg-3">
-                <a href="/players" class="text-decoration-none text-dark">
-                    <div class="card h-100 shadow-sm hover-shadow text-center p-3">
-                        <img src="{{ url_for('static', filename='icons/player_a.png') }}" class="card-img-top mx-auto" style="width: 100px; height: 100px; object-fit: contain;" alt="Players">
-                        <div class="card-body">
-                            <h3 class="card-title">Players</h3>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-6 col-lg-3">
-                <a href="/referees" class="text-decoration-none text-dark">
-                    <div class="card h-100 shadow-sm hover-shadow text-center p-3">
-                        <img src="{{ url_for('static', filename='icons/referee_a.png') }}" class="card-img-top mx-auto" style="width: 100px; height: 100px; object-fit: contain;" alt="Referees">
-                        <div class="card-body">
-                            <h3 class="card-title">Referees</h3>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-6 col-lg-3">
-                <a href="/matches" class="text-decoration-none text-dark">
-                    <div class="card h-100 shadow-sm hover-shadow text-center p-3">
-                        <img src="{{ url_for('static', filename='icons/matches_b.png') }}" class="card-img-top mx-auto" style="width: 100px; height: 100px; object-fit: contain;" alt="Matches">
-                        <div class="card-body">
-                            <h3 class="card-title">Matches</h3>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-
+      </div>
     </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <a href="/teams" class="text-decoration-none text-dark">
+          <div class="card h-100 shadow-sm hover-shadow text-center p-3">
+            <img
+              src="{{ url_for('static', filename='icons/badge_e.png') }}"
+              class="card-img-top mx-auto"
+              style="width: 100px; height: 100px; object-fit: contain"
+              alt="Teams"
+            />
+            <div class="card-body">
+              <h3 class="card-title">Teams</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <a href="/players" class="text-decoration-none text-dark">
+          <div class="card h-100 shadow-sm hover-shadow text-center p-3">
+            <img
+              src="{{ url_for('static', filename='icons/player_a.png') }}"
+              class="card-img-top mx-auto"
+              style="width: 100px; height: 100px; object-fit: contain"
+              alt="Players"
+            />
+            <div class="card-body">
+              <h3 class="card-title">Players</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <a href="/referees" class="text-decoration-none text-dark">
+          <div class="card h-100 shadow-sm hover-shadow text-center p-3">
+            <img
+              src="{{ url_for('static', filename='icons/referee_a.png') }}"
+              class="card-img-top mx-auto"
+              style="width: 100px; height: 100px; object-fit: contain"
+              alt="Referees"
+            />
+            <div class="card-body">
+              <h3 class="card-title">Referees</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <a href="/matches" class="text-decoration-none text-dark">
+          <div class="card h-100 shadow-sm hover-shadow text-center p-3">
+            <img
+              src="{{ url_for('static', filename='icons/matches_b.png') }}"
+              class="card-img-top mx-auto"
+              style="width: 100px; height: 100px; object-fit: contain"
+              alt="Matches"
+            />
+            <div class="card-body">
+              <h3 class="card-title">Matches</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
 
 {% endblock %}

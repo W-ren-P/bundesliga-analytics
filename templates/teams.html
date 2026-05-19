@@ -1,28 +1,22 @@
-{% extends "base.html" %}
-
-{% block title %}Teams{% endblock %}
-
-{% block content %}
-
+{% extends "base.html" %} {% block title %}Teams{% endblock %} {% block content
+%}
 
 <h1 class="fw-bold text-center">Teams</h1>
-<br>
-
+<br />
 
 <div class="team-grid">
-  {% for team in teams %}
-    {% set clean_name = team|trim %}
-    <a href="/teams/{{ clean_name }}" class="team-card">
-      <!--<img src="/static/badges/{{ clean_name }}.png" class="badge" alt="{{ clean_name }}">-->
-        <img src="{{ url_for('static', filename='badges/' ~ clean_name ~ '.png') }}"
-             class="team-badge"
-             alt="{{ clean_name }}">
+  {% for team in teams %} {% set clean_name = team|trim %}
+  <a href="/teams/{{ clean_name }}" class="team-card">
+    <!--<img src="/static/badges/{{ clean_name }}.png" class="badge" alt="{{ clean_name }}">-->
+    <img
+      src="{{ url_for('static', filename='badges/' ~ clean_name ~ '.png') }}"
+      class="team-badge"
+      alt="{{ clean_name }}"
+    />
 
-      <p>{{ clean_name }}</p>
-    </a>
+    <p>{{ clean_name }}</p>
+  </a>
   {% endfor %}
 </div>
 
 {% endblock %}
-
-
